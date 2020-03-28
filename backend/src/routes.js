@@ -5,16 +5,13 @@ const IncidentController = require("./controllers/IncidentController");
 
 const routes = express.Router();
 
-/** Rota de listagem de Hospital */
+/** Rotas de Hospital*/
 routes.get("/hospitals", HospitalController.index);
-
-/** Rota para criar um Hospital */
 routes.post("/hospitals", HospitalController.create);
 
-/** Rota de listagem de incident */
+/** Rotas de Incident*/
 routes.get("/incidents", IncidentController.index);
-
-/** Rota de criação de incident */
 routes.post("/incidents", IncidentController.create);
+routes.delete("/incidents/:id", IncidentController.delete);
 
 module.exports = routes;
