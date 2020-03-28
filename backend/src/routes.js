@@ -1,12 +1,12 @@
 const express = require("express");
+const HospitalController = require("./controllers/HospitalController");
+
 const routes = express.Router();
 
-routes.get('/users', (request, response) => {
+/** Rota de listagem de Hospital */
+routes.get("/hospitals", HospitalController.index);
 
-    return response.json({
-        evento: 'Semana OminiStack 11',
-        aluno: 'Kelvin Ferreira Souza'
-    });
-});
+/** Rota para criar um Hospital */
+routes.post("/hospitals", HospitalController.create);
 
 module.exports = routes;
