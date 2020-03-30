@@ -28,11 +28,11 @@ export default function Profile(){
                     <strong>DESCRIÇÃO:</strong>
                     <p>Casos de Corona Vírus</p>
 
-                    <strong>VALOR:</strong>
+                    <strong>QUANTIDADE:</strong>
                     <p>120</p>
 
                     <button type="button">
-                        <FiTrash2 size="20" color="#a8a8b3" />
+                        <FiTrash2 size={20} color="#a8a8b3" />
                     </button>
                 </li>
                 <li>
@@ -42,11 +42,11 @@ export default function Profile(){
                     <strong>DESCRIÇÃO:</strong>
                     <p>Casos de Corona Vírus</p>
 
-                    <strong>VALOR:</strong>
+                    <strong>QUANTIDADE:</strong>
                     <p>120</p>
 
                     <button type="button">
-                        <FiTrash2 size="20" color="#a8a8b3" />
+                        <FiTrash2 size={20} color="#a8a8b3" />
                     </button>
                 </li>
                 <li>
@@ -56,11 +56,11 @@ export default function Profile(){
                     <strong>DESCRIÇÃO:</strong>
                     <p>Casos de Corona Vírus</p>
 
-                    <strong>VALOR:</strong>
+                    <strong>QUANTIDADE:</strong>
                     <p>120</p>
 
                     <button type="button">
-                        <FiTrash2 size="20" color="#a8a8b3" />
+                        <FiTrash2 size={20} color="#a8a8b3" />
                     </button>
                 </li>
                 <li>
@@ -70,11 +70,11 @@ export default function Profile(){
                     <strong>DESCRIÇÃO:</strong>
                     <p>Casos de Corona Vírus</p>
 
-                    <strong>VALOR:</strong>
+                    <strong>QUANTIDADE:</strong>
                     <p>120</p>
 
                     <button type="button">
-                        <FiTrash2 size="20" color="#a8a8b3" />
+                        <FiTrash2 size={20} color="#a8a8b3" />
                     </button>
                 </li>
             </ul>
