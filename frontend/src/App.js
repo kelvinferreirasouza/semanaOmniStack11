@@ -1,8 +1,14 @@
 import React from 'react';
+import Logon from './pages/Logon';
+
+import './global.css';
+
+// JSX (JavaScript XML)
 
 function App() {
-    return (
-        <h1>Hello Word</h1>
+    
+    return ( 
+       <Logon />
     );
 }
 
