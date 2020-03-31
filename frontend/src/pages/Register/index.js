@@ -19,7 +19,11 @@ export default function Register(){
     const history = useHistory();
     
     async function handleRegister(e){
-        // verifica se o formulário está vazio, se sim, não atualiza a página ao clicar no botão
+        
+        /**
+         * verifica se o formulário está vazio, se sim, não atualiza a página ao clicar no botão
+         * deve ser incluso o onSubmit={handleName}
+         */
         e.preventDefault();
 
         const data = {

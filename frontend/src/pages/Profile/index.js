@@ -6,11 +6,13 @@ import logoImg from '../../assets/logo.svg';
 import './styles.css';
 
 export default function Profile(){
+    const hospital_name = localStorage.getItem('hospital_name');
+
     return (
         <div className="profile-container">
             <header>
                 <img src={logoImg} alt="COVID19 Incidents" />
-                <span>Bem vinda, Santa Casa</span>
+                <span>Bem vinda, { hospital_name }</span>
 
                 <Link to="/incidents/new" className="button">Cadastrar novo caso</Link>
                 <button type="button">
