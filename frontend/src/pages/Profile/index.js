@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
-import logoImg from '../../assets/logo.svg';
+import api from '../../services/api';
 
+import logoImg from '../../assets/logo.svg';
 import './styles.css';
 
 export default function Profile(){
+    const [incidents, setIncidents] = useState([]);
+    const hospital_id = localStorage.getItem('hospital_id');
     const hospital_name = localStorage.getItem('hospital_name');
+
+    useEffect(() => {
+        api.get('profile', {
+            headers: {
+                Authorization: hospital_id,
+            }
+        }).then(response => {
+            setIncidents(response.data);
+        })
+    }, [hospital_id]);
 
     return (
         <div className="profile-container">
@@ -23,62 +36,22 @@ export default function Profile(){
             <h1>Casos cadastrados</h1>
 
             <ul>
-                <li>
-                    <strong>CASO</strong>
-                    <p>COVID-19</p>
+                {incidents.map(incident => (
+                    <li key={incident.id}>
+                        <strong>CASO</strong>
+                        <p>{incident.title}</p>
 
-                    <strong>DESCRIÇÃO:</strong>
-                    <p>Casos de Corona Vírus</p>
+                        <strong>DESCRIÇÃO:</strong>
+                        <p>{incident.description}</p>
 
-                    <strong>QUANTIDADE:</strong>
-                    <p>120</p>
+                        <strong>QUANTIDADE:</strong>
+                        <p>{incident.value}</p>
 
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
+                        <button type="button">
+                            <FiTrash2 size={20} color="#a8a8b3" />
+                        </button>
                 </li>
-                <li>
-                    <strong>CASO</strong>
-                    <p>COVID-19</p>
-
-                    <strong>DESCRIÇÃO:</strong>
-                    <p>Casos de Corona Vírus</p>
-
-                    <strong>QUANTIDADE:</strong>
-                    <p>120</p>
-
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
-                </li>
-                <li>
-                    <strong>CASO</strong>
-                    <p>COVID-19</p>
-
-                    <strong>DESCRIÇÃO:</strong>
-                    <p>Casos de Corona Vírus</p>
-
-                    <strong>QUANTIDADE:</strong>
-                    <p>120</p>
-
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
-                </li>
-                <li>
-                    <strong>CASO</strong>
-                    <p>COVID-19</p>
-
-                    <strong>DESCRIÇÃO:</strong>
-                    <p>Casos de Corona Vírus</p>
-
-                    <strong>QUANTIDADE:</strong>
-                    <p>120</p>
-
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
-                </li>
+                ))}
             </ul>
         </div>
     );
