@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import api from '../../services/api';
 
@@ -8,6 +8,9 @@ import './styles.css';
 
 export default function Profile(){
     const [incidents, setIncidents] = useState([]);
+
+    const history = useHistory();
+
     const hospital_id = localStorage.getItem('hospital_id');
     const hospital_name = localStorage.getItem('hospital_name');
 
@@ -38,6 +41,11 @@ export default function Profile(){
         setIncidents(incidents.filter(incident => incident.id != id));
     }
 
+    function handleLogout(){
+        localStorage.clear();
+        history.push('/');
+    }
+
 
     /**
      * Para formatar um valor em moeda R$
@@ -51,7 +59,7 @@ export default function Profile(){
                 <span>Bem vinda, { hospital_name }</span>
 
                 <Link to="/incidents/new" className="button">Cadastrar novo caso</Link>
-                <button type="button">
+                <button type="button" onClick={handleLogout}>
                     <FiPower size="18" color="#E02041" />
                 </button>
             </header>
