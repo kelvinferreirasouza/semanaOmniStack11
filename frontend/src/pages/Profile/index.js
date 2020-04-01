@@ -21,6 +21,29 @@ export default function Profile(){
         })
     }, [hospital_id]);
 
+    async function handleDeleteIncident(id) {
+        
+        //realiza o delete
+        try {
+            await api.delete(`incidents/${id}`, {
+                headers: {
+                    Authorization: hospital_id,
+                }
+            });
+        } catch (erro) {
+            alert('Erro ao deletar, tente novamente');
+        }
+
+        //realiza a varredura na listagem para remover o elemento excluido
+        setIncidents(incidents.filter(incident => incident.id != id));
+    }
+
+
+    /**
+     * Para formatar um valor em moeda R$
+     * <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(incident.value)}</p>
+     */
+
     return (
         <div className="profile-container">
             <header>
@@ -47,10 +70,10 @@ export default function Profile(){
                         <strong>QUANTIDADE:</strong>
                         <p>{incident.value}</p>
 
-                        <button type="button">
+                        <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
                             <FiTrash2 size={20} color="#a8a8b3" />
                         </button>
-                </li>
+                    </li>
                 ))}
             </ul>
         </div>
