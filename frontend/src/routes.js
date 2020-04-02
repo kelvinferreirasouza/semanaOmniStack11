@@ -5,6 +5,7 @@ import Logon from './pages/Logon';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import NewIncident from './pages/NewIncident';
+import AlterIncident from './pages/AlterIncident';
 
 
 export default function Routes(){
